@@ -33,45 +33,47 @@ class _DesafioPageState extends State<DesafioPage> {
           centerTitle: true,
           title: const Text('Desafio'),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Center(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                CircleAvatar(
-                    backgroundColor: Colors.transparent,
-                    radius: 100,
-                    backgroundImage: NetworkImage(dadosUser.avatarUrl)),
-                const SizedBox(height: 5),
-                Text('Usuário: ${dadosUser.login}', style: estiloPadrao),
-                const SizedBox(height: 5),
-                Text('Nome: ${dadosUser.nome}', style: estiloPadrao),
-                const SizedBox(height: 5),
-                Text(
-                  'Biografia: ${dadosUser.bio}',
-                  textAlign: TextAlign.center,
-                  style: estiloPadrao,
-                ),
-                const SizedBox(height: 10),
-                TextFormField(
-                  controller: _controllerUsuario,
-                  decoration: const InputDecoration(
-                    labelText: 'Nome',
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Center(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                  CircleAvatar(
+                      backgroundColor: Colors.transparent,
+                      radius: 100,
+                      backgroundImage: NetworkImage(dadosUser.avatarUrl)),
+                  const SizedBox(height: 5),
+                  Text('Usuário: ${dadosUser.login}', style: estiloPadrao),
+                  const SizedBox(height: 5),
+                  Text('Nome: ${dadosUser.nome}', style: estiloPadrao),
+                  const SizedBox(height: 5),
+                  Text(
+                    'Biografia: ${dadosUser.bio}',
+                    textAlign: TextAlign.center,
+                    style: estiloPadrao,
                   ),
-                ),
-                ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.red)),
-                  child: const Text('Buscar'),
-                  onPressed: () async {
-                    dadosUser =
-                        await _buscarUsuario(_controllerUsuario.text, context);
-                    setState(() {});
-                  },
-                )
-              ])),
+                  const SizedBox(height: 10),
+                  TextFormField(
+                    controller: _controllerUsuario,
+                    decoration: const InputDecoration(
+                      labelText: 'Nome',
+                    ),
+                  ),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.red)),
+                    child: const Text('Buscar'),
+                    onPressed: () async {
+                      dadosUser =
+                          await _buscarUsuario(_controllerUsuario.text, context);
+                      setState(() {});
+                    },
+                  )
+                ])),
+          ),
         ));
   }
 }
