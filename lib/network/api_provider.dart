@@ -6,10 +6,10 @@ import '../model/dados_user.dart';
 
 class ApiProvider {
   ApiProvider();
+
   Future<DadosUser> buscarUsuario(String usuario, BuildContext context) async {
     ScaffoldMessenger.of(context)
         .showSnackBar(const SnackBar(content: Text("Buscando usuário...")));
-
     final response =
         await http.get(Uri.parse('https://api.github.com/users/$usuario'));
 

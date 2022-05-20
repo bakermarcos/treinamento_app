@@ -12,10 +12,11 @@ class DadosUser {
 
   factory DadosUser.fromJson(Map<String, dynamic> json) {
     return DadosUser(
-      login: json['login'],
-      nome: json['name'],
-      bio: json['bio'],
-      avatarUrl: json['avatar_url'],
+      login: json['login'] ?? "",
+      nome: json['name'] ?? "<Sem nome>",
+      bio: json['bio'] ?? "<Sem biografia>",
+      avatarUrl: json['avatar_url'] ??
+          "https://cdn-icons-png.flaticon.com/512/25/25231.png",
     );
   }
 }

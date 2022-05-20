@@ -18,7 +18,9 @@ class _DesafioPageState extends State<DesafioPage> {
       avatarUrl: "https://cdn-icons-png.flaticon.com/512/25/25231.png");
   final estiloPadrao =
       const TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
+
   final Function _buscarUsuario = ApiProvider().buscarUsuario;
+
   @override
   void dispose() {
     _controllerUsuario.dispose();
