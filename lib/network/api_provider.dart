@@ -22,6 +22,7 @@ class ApiProvider {
       // _usuario = dados['login'];
       // _nome = dados['name'] ?? "<Sem nome>";
       // _biografia = dados['bio'] ?? "<Sem biografia>";
+      // _baker = dados['baker'] ?? padeiro;
 
     } else {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
