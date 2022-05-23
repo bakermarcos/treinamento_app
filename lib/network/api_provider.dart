@@ -8,6 +8,7 @@ class ApiProvider {
   ApiProvider();
 
   Future<DadosUser> buscarUsuario(String usuario, BuildContext context) async {
+    String _baker = '';
     ScaffoldMessenger.of(context)
         .showSnackBar(const SnackBar(content: Text("Buscando usuário...")));
     final response =
@@ -18,18 +19,20 @@ class ApiProvider {
     if (response.statusCode == 200) {
       final Map<String, dynamic> dados = json.decode(response.body);
       final DadosUser dadosUser = DadosUser.fromJson(dados);
-      return dadosUser;
+      _baker = dados['baker'] ?? 'padeiro';
       // _usuario = dados['login'];
       // _nome = dados['name'] ?? "<Sem nome>";
       // _biografia = dados['bio'] ?? "<Sem biografia>";
-      // _baker = dados['baker'] ?? padeiro;
-
+      return dadosUser;
     } else {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           backgroundColor: Colors.redAccent,
           content: Text("Ocorreu um erro ao buscar o usuário.")));
       return DadosUser(
-          login: "Erro", nome: "Erro", bio: "Erro", avatarUrl: "Erro");
+          login: "Erro",
+          nome: "Erro",
+          bio: "Erro",
+          avatarUrl: "https://cdn-icons-png.flaticon.com/512/25/25231.png");
     }
   }
 }

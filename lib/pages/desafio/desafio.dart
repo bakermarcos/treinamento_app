@@ -69,8 +69,8 @@ class _DesafioPageState extends State<DesafioPage> {
                             MaterialStateProperty.all<Color>(Colors.red)),
                     child: const Text('Buscar'),
                     onPressed: () async {
-                      dadosUser =
-                          await _buscarUsuario(_controllerUsuario.text, context);
+                      dadosUser = await _buscarUsuario(
+                          _controllerUsuario.text, context);
                       setState(() {});
                     },
                   )
